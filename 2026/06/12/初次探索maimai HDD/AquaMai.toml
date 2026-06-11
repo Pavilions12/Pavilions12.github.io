@@ -1,0 +1,903 @@
+## 这是 AquaMai 的 TOML 配置文件
+## 
+## - 井号 # 开头的行为注释，被注释掉的内容不会生效
+##     - 为方便使用 VSCode 等编辑器进行编辑，被注释掉的配置内容使用一个井号 #，而注释文本使用两个井号 ##
+## - 以方括号包裹的行，如 [OptionalCategory.Section]，为一个栏目
+##     - 将默认被注释（即默认禁用）的栏目取消注释即可启用
+##     - 若要禁用一个默认启用的栏目，请在栏目下添加「Disabled = true」配置项，删除它/注释它不会有效
+## - 形如「键 = 值」为一个配置项
+##     - 配置项应用到其上方最近的栏目，请不要在一个栏目被注释掉的情况下开启其配置项（会加到上一个栏目，无效）
+##     - 当对应栏目启用时，配置项生效，无论是否将其取消注释
+##     - 注释掉的配置项保留其注释中的默认值，默认值可能会随版本更新而变化
+## - 该文件的格式和文字注释是固定的，配置文件将在启动时被重写，无法解析的内容将被删除
+## 
+## 试试使用 MaiChartManager 图形化配置 AquaMai 吧！
+## https://github.com/clansty/MaiChartManager
+
+Version = "2.3"
+
+## AquaMai 的通用设置
+[General]
+## Mod 界面语言
+## Mod 界面的语言，支持 en 和 zh
+## 如果为空，将使用系统语言
+## 配置文件也将以此语言保存
+Locale = "zh"
+
+## 自定义字体
+## 使用自定义字体作为回退（解决中文字形缺失问题），或完全替换游戏原字体
+[GameSystem.Assets.Fonts]
+## 字体路径
+## 使用分号分隔多个路径以构成 Fallback 链
+## 默认为微软雅黑 Bold
+#Paths = "%SYSTEMROOT%/Fonts/msyhbd.ttc"
+## 作为回退字体
+## 将自定义字体作为游戏原字体的回退，尽可能使用游戏原字体
+#AddAsFallback = true
+
+## 忽略加载失败的 .ab 图片资源
+[GameSystem.Assets.IgnoreLoadFailedAssetBundle]
+
+## 无视 Manifest
+## 加载所有存在的 .ab 图片资源（无视 AssetBundleImages.manifest）
+## 导入了删除曲包之类的话，应该需要开启这个
+[GameSystem.Assets.LoadAssetBundleWithoutManifest]
+
+## 直读图片
+## 从指定目录下加载资源图片（自制谱用）
+[GameSystem.Assets.LoadLocalImages]
+## 图片路径
+#ImageAssetsDir = "LocalAssets"
+
+## 直读 PV
+## 自定义歌曲游玩界面背景
+## 优先级: 首先读游戏自带 PV, 然后读本地 mp4 格式 PV, 最后读封面
+[GameSystem.Assets.MovieLoader]
+## 游戏自带 PV
+## 加载游戏自带的 PV
+#LoadSourceMovie = true
+## 本地 MP4
+## 从 LocalAssets 中加载 MP4 文件作为 PV
+#LoadMp4Movie = true
+## MP4 路径
+## 加载 MP4 文件的路径
+#MovieAssetsDir = "LocalAssets"
+## 封面作为背景
+## 用封面作为背景 PV
+## 请和 `LoadLocalImages` 一起用
+#JacketAsMovie = true
+
+## 重开计次
+## 在一键重开（无论何种触发方式）时，增加当前谱面的游玩次数
+[GameSystem.AddPlayCountWhenQuickRetry]
+
+## ADX HID 输入
+## 使用 ADX HID 固件的自定义输入（没有 ADX 的话开了也不会加载，也没有坏处）
+[GameSystem.AdxHidInput]
+## 按钮 1（向上的三角键）
+#Button1 = "Select1P"
+## 按钮 2（三角键中间的圆形按键）
+#Button2 = "Service"
+## 按钮 3（向下的三角键）
+#Button3 = "Select2P"
+## 按钮 4（最下方的圆形按键）
+#Button4 = "Test"
+## IO4 兼容模式
+## 如果你不知道这是什么，请勿开启
+#Io4Compact = false
+
+## 自定义摄像头
+## 使用自定义的摄像头 ID 而不是默认的
+## 启用后可以指定游戏使用的摄像头
+#[GameSystem.CustomCameraId]
+## 打印摄像头列表
+## 启动时打印摄像头列表到日志中，可以作为修改的依据
+#PrintCameraList = false
+## DX Pass 1P
+#LeftQrCamera = 0
+## DX Pass 2P
+#RightQrCamera = 0
+## 玩家摄像头
+#PhotoCamera = 0
+## 二维码扫描器
+#ChimeCamera = 0
+
+## 去除倒计时
+## 去除并隐藏游戏中的倒计时
+#[GameSystem.DisableTimeout]
+## 移除续关倒计时
+#InContinueProcess = false
+## 移除开始倒计时
+## 也移除刷卡和选择模式界面的倒计时
+#InGameStart = true
+## 隐藏计时器
+#HideTimer = true
+## 显示无穷符号
+## 仅在 隐藏计时器 关闭时显示
+#ShowInfinity = true
+## 快速跳过
+## 在登录和选择模式界面，按一下跳过按钮就可以立即跳过
+#InstanceSkip = false
+
+## 触屏优化
+## 启用触摸输入和半径，以获得更真实的触摸屏体验
+[GameSystem.ExteraMouseInput]
+#Disabled = false
+## 触摸半径
+## 触摸区域半径大小。请根据手指大小调整，可以去 Test 中测试
+#Radius = 25.0
+## 显示触摸点
+## 显示触摸点（仅限触屏输入）
+#DisplayArea = false
+
+## 耳机音量倍率
+## 将 1P/2P 用户设置的耳机音量乘以一个倍率，可以调低或调高，但不能高于原本的 20。
+#[GameSystem.HeadphoneVolumeMultiply]
+## 1P
+#P1 = 1.0
+## 2P
+#P2 = 1.0
+
+## 按键映射
+## 启用或禁用 IO4 和 DebugInput。配置 DebugInput 的按键映射。
+## DebugInput 与 IO4（兼容 IO4 板 / segatools IO4 模拟）独立工作。
+## （你应该至少启用一个输入源，除非你使用其他输入方案如 AdxHidInput。）
+[GameSystem.KeyMap]
+## 禁用 IO4
+## 禁用 IO4（兼容 IO4 板 / segatools IO4 模拟）输入。
+## 在禁用 IO4 输入后，你的兼容 IO4 板或 segatools IO4 模拟将被忽略。
+#DisableIO4 = false
+## 禁用 DebugInput
+## 禁用 DebugInput，下列按键映射将不起作用。
+## 在禁用 DebugInput 后，你需要兼容 IO4 板、segatools IO4 模拟或其他自定义输入方案才能游玩。
+## 如果使用 IO4 模拟，你可以在 segatools.ini 的 [io4] 和 [button] 部分配置按键映射。
+#DisableDebugInput = false
+## 禁用调试快捷键
+## 禁用 DebugFeature Polyfill 的快捷键，比如说回车暂停，左右键快进快退等。
+#DisableDebugFeatureHotkeys = false
+#Test = "ScrollLock"
+#Service = "Pause"
+#Button1_1P = "W"
+#Button2_1P = "E"
+#Button3_1P = "D"
+#Button4_1P = "C"
+#Button5_1P = "X"
+#Button6_1P = "Z"
+#Button7_1P = "A"
+#Button8_1P = "Q"
+#Select_1P = "Alpha3"
+#Button1_2P = "Keypad8"
+#Button2_2P = "Keypad9"
+#Button3_2P = "Keypad6"
+#Button4_2P = "Keypad3"
+#Button5_2P = "Keypad2"
+#Button6_2P = "Keypad1"
+#Button7_2P = "Keypad4"
+#Button8_2P = "Keypad7"
+#Select_2P = "KeypadMultiply"
+#Autoplay = "Home"
+
+## Opt 加载修复
+## 在 StreamingAssets 加载 Opt 时，不仅加载 A 开头的，也加载版本对应字母开头的
+[GameSystem.OptionLoadFix]
+
+## 快速重开
+## 按住下方四个按钮（3456）快速重开本局游戏（像在 Freedom Mode 中一样，默认仅对非宴谱有效）
+#[GameSystem.QuickRetry]
+## 更快触发
+## 将长按时间修改为 0.5 秒
+#QuickerRetry = false
+## 宴谱启用
+## 在宴谱中强制启用
+#EnableInUtage = false
+
+## 移除加密
+## 如果你在用未经修改的客户端，会默认加密到服务器的连接，而连接私服的时候不应该加密
+## 开了这个选项之后就不会加密连接了，同时也会移除不同版本的客户端可能会对 API 接口加的后缀
+## 正常情况下，请保持这个选项开启
+[GameSystem.RemoveEncryption]
+
+## 单人模式
+## 单人模式，不显示 2P
+[GameSystem.SinglePlayer]
+## 隐藏副屏
+## 只显示主区域，不显示副屏
+#HideSubMonitor = false
+## 自动跳过倒计时
+## 单人模式下刷卡登录直接进入下一个界面，无需跳过倒计时
+#AutoSkip = false
+## 修复烟花效果
+## 修复单人模式下的烟花效果（如果启用了 HideHanabi，则会自动禁用）
+#FixHanabi = true
+## 显示自由模式计时
+## 使用自由模式时，在副屏显示计时器
+#ShowFreedomModeTimer = true
+
+## 旧框灯板支持
+## 跳过 BoardNo 检查以使用 837-15070-02（旧框灯板）
+#[GameSystem.SkipBoardNoCheck]
+
+## 音频输出设置
+## 音频独占与八声道设置
+[GameSystem.Sound]
+## 音频独占
+EnableExclusive = false
+## 八声道
+#Enable8Channel = false
+## 乐曲音量
+#MusicVolume = 1.0
+
+## 8Ch 音频路由重映射
+## 将 8Ch 的各个声道重新映射到指定的声道
+## 可进行混合，可使用 "None" 以禁用一个声道，音量在源声道应用（> 1.0 不会生效，若要提高音量，请使用 HeadphoneVolumeMultiply）
+## （注：对于 2Ch 用户，请将需要的声道路由到 P1SpeakerLeft/Right，其他声道路由到 None）
+#[GameSystem.SoundRouting]
+## 1P外放左
+#RouteP1SpeakerLeftTo = "P1SpeakerLeft"
+## 1P外放右
+#RouteP1SpeakerRightTo = "P1SpeakerRight"
+## 1P耳机左
+#RouteP1HeadphoneLeftTo = "P1HeadphoneLeft"
+## 1P耳机右
+#RouteP1HeadphoneRightTo = "P1HeadphoneRight"
+## 2P外放左
+#RouteP2SpeakerLeftTo = "P2SpeakerLeft"
+## 2P外放右
+#RouteP2SpeakerRightTo = "P2SpeakerRight"
+## 2P耳机左
+#RouteP2HeadphoneLeftTo = "P2HeadphoneLeft"
+## 2P耳机右
+#RouteP2HeadphoneRightTo = "P2HeadphoneRight"
+## 1P外放音量
+#VolumeP1Speaker = 1.0
+## 1P耳机音量
+#VolumeP1Headphone = 1.0
+## 2P外放音量
+#VolumeP2Speaker = 1.0
+## 2P耳机音量
+#VolumeP2Headphone = 1.0
+
+## 测试键长按
+## 启用后，测试键必须长按才能进入游戏测试模式
+## 当测试键被绑定到其它功能时，此选项自动开启
+#[GameSystem.TestProof]
+## 测试模式按键
+## 修改为 Test 以外的值来实现长按特定的键进入游戏测试模式，这样 Test 键就可以完全用来实现自定义功能了
+#TestKey = "Test"
+
+## 触摸屏波特率
+## 调整触摸屏串口波特率，默认值 9600
+## 需要硬件配合，如果你不清楚你是否可以使用，请不要使用
+#[GameSystem.TouchPanelBaudRate]
+## 波特率
+#BaudRate = 9600
+
+## 触摸屏串口
+## 调整触摸屏串口号，默认值 COM3 COM4
+## 需要设备管理器配置，如果你不清楚你是否可以使用，请不要使用
+#[GameSystem.TouchPanelPort]
+## 1P串口号
+#PortName_1P = "COM3"
+## 2P串口号
+#PortName_2P = "COM4"
+
+## 触摸转按键
+## 映射触摸操作至实体按键
+[GameSystem.TouchToButtonInput]
+
+## 全解
+## 解锁原本锁定（包括正常途径无法解锁）的游戏内容
+## 由本 Mod 解锁的内容（除了被你升级过的角色以外）不会上传到你的账户
+## 游玩时仍会像未开启解锁一样「获得」那些乐曲/收藏品/段位
+#[GameSystem.Unlock]
+## 区域
+## 解锁游戏里所有的区域，包括非当前版本的（并不会帮你跑完）
+#Maps = true
+## 乐曲
+## 解锁所有乐曲，并跳过紫/白解锁画面（会正常保存解锁状态）
+#Songs = true
+## 跑图券
+## 解锁游戏里所有可能的跑图券
+#Tickets = false
+## 段位
+## 解锁所有段位模式的段位（不需要十段就可以打真段位）
+#Courses = false
+## 宴会场
+## 不需要万分也可以进宴会场
+#Utage = true
+## 称号
+#Titles = false
+## 头像
+#Icons = false
+## 姓名框
+#Plates = false
+## 背景
+#Frames = false
+## 搭档
+#Partners = false
+## Events
+#Events = false
+## Event 黑名单
+## 不解锁以下 Event。如果你不知道这是什么，请勿修改
+#EventBlackList = "0,250926121"
+## 旅行伙伴
+#Characters = false
+
+## 音量同步
+## 将1P耳机音量同步给游戏主音量（外放音量）
+## 注意：若此功能与八声道同时开启，会导致内置耳机声道的音量被缩放两次，推荐在仅使用1P且不开启八声道时使用,
+#[GameSystem.VolumeSync]
+
+## 图形设置
+## 分辨率设置 / 窗口化
+[GameSystem.Window]
+## 窗口模式
+## 窗口化游戏
+Windowed = true
+## 无边框
+#Borderless = false
+## 宽度
+## 宽度（和高度）窗口化时为游戏窗口大小，全屏时为渲染分辨率
+## 如果设为 0，窗口化将记住用户设定的大小，全屏时将使用当前显示器分辨率
+## 全屏时如果显示大小不正确，请改成屏幕的分辨率（如 2160x3840）
+#Width = 0
+## 高度
+#Height = 0
+
+## 点数设置
+## 设置游戏为付费游玩（锁定可用点数）或免费游玩
+[GameSettings.CreditConfig]
+## 免费游玩
+## 是否免费游玩（设为 false 时为付费游玩）
+IsFreePlay = false
+## 免费时购票
+## 可以在免费游玩时购买付费功能票
+#AllowTicketInFreePlay = false
+## 锁定点数
+## 锁定可用点数数量（仅在付费游玩时有效），设为 0 以禁用
+LockCredits = 24
+
+## 强制为服务器
+## 如果要配置店内招募的话，应该要把这个关闭
+[GameSettings.ForceAsServer]
+
+## 判定调整
+## 全局调整 A/B 判（单位和游戏里一样）或增加触摸延迟
+#[GameSettings.JudgeAdjust]
+## A判
+#A = 0.0
+## B判
+#B = 0.0
+## 触摸延迟
+## 增加触摸延迟（不建议使用）
+#TouchDelay = 0
+
+## 触摸灵敏度
+## 使用自定义触摸灵敏度
+## 这里启用之后 Test 里的就不再起作用了
+## 这里禁用之后就还是用 Test 里的调
+## 
+## 在 Test 模式下调整的灵敏度不是线性的
+## A 区默认灵敏度 90, 80, 70, 60, 50, 40, 30, 26, 23, 20, 10
+## 其他区域默认灵敏度 70, 60, 50, 40, 30, 20, 15, 10, 5, 1, 1
+## Test 里设置的 0 对应的是 40, 20 这一档，-5 是 90, 70，+5 是 10, 1
+## Test 里的数字越大，这里的数字越小，对于官机来说，灵敏度更大
+## 而 ADX 的灵敏度是反的，所以对于 ADX，这里的数字越大，灵敏度越大
+#[GameSettings.TouchSensitivity]
+#A1 = 40
+#A2 = 40
+#A3 = 40
+#A4 = 40
+#A5 = 40
+#A6 = 40
+#A7 = 40
+#A8 = 40
+#B1 = 20
+#B2 = 20
+#B3 = 20
+#B4 = 20
+#B5 = 20
+#B6 = 20
+#B7 = 20
+#B8 = 20
+#C1 = 20
+#C2 = 20
+#D1 = 20
+#D2 = 20
+#D3 = 20
+#D4 = 20
+#D5 = 20
+#D6 = 20
+#D7 = 20
+#D8 = 20
+#E1 = 20
+#E2 = 20
+#E3 = 20
+#E4 = 20
+#E5 = 20
+#E6 = 20
+#E7 = 20
+#E8 = 20
+
+## 忽略 Aime 错误
+## 防止因错误认为 AimeDB 服务器问题引起的灰网，建议开启
+[Tweaks.IgnoreAimeServerError]
+
+## LED亮度控制
+## 控制按键和框体灯的亮度
+#[Tweaks.LedBrightnessControl]
+## 1P按键亮度
+## (0.0 - 1.0)
+#Button1p = 1.0
+## 2P按键亮度
+## (0.0 - 1.0)
+#Button2p = 1.0
+## 1P框体灯亮度
+## (0.0 - 1.0)
+#Cabinet1p = 1.0
+## 2P框体灯亮度
+## (0.0 - 1.0)
+#Cabinet2p = 1.0
+
+## 锁定帧率
+## 强制设置帧率上限为 60 帧并关闭垂直同步
+## 如果你的游戏没有问题，请不要使用。建议直接设置显示器的刷新率
+#[Tweaks.LockFrameRate]
+## 目标帧率
+## 目标帧率，不建议修改。除非你知道你在做什么
+#TargetFrameRate = 60
+
+## 重置触摸面板
+#[Tweaks.ResetTouch]
+## 玩完一首歌自动重置
+#AfterTrack = false
+## 重置按键
+#Key = "None"
+#LongPress = false
+
+## 跳过版本检查
+## 原先如果你的账号版本比当前游戏设定的版本高的话，就会不能登录
+## 开了这个选项之后就可以登录了，不过你的账号版本还是会被设定为当前游戏的版本
+[Tweaks.SkipUserVersionCheck]
+
+## 跳过启动检查
+## 在自检界面，有一些检查需要等待检查完毕后，才会进入下一阶段
+## 开了以下选项之后会将检查过程丢入后台进行，但可能存在部分副作用
+#[Tweaks.TimeSaving.CheckSkip]
+## 跳过摄像头检查
+## 若在后台检查完毕前过早启动摄像头会导致摄像头临时黑屏
+#SkipStartupCameraCheck = false
+## 跳过启动网络检查
+## 若在后台检查完毕前过早进入会进入临时灰网
+#SkipPowerOnNetworkCheck = false
+
+## 登录后直接选歌
+## 登录完成后直接进入选歌界面
+#[Tweaks.TimeSaving.EntryToMusicSelection]
+## 仅游客模式
+## 仅在游客模式启用
+#EnableOnlyInGuestMode = false
+
+## 游戏结束直接登出
+## 游戏结束后跳过上传照片和收藏品直接登出
+#[Tweaks.TimeSaving.ExitToSave]
+
+## 跳过拍打警告
+## 跳过“不要大力拍打或滑动哦”这个界面，数据一旦加载完就立马进入下一个界面
+#[Tweaks.TimeSaving.IWontTapOrSlideVigorously]
+
+## 跳过活动提示
+## 跳过登录 / 注册游戏时候可能的 “发现了新的区域哟” “乐曲增加” “有活动哟” 之类的提示
+#[Tweaks.TimeSaving.SkipEventInfo]
+
+## 跳过再见界面
+## 跳过游戏结束的「再见」界面
+#[Tweaks.TimeSaving.SkipGoodbyeScreen]
+
+## 跳过启动延迟
+## 在自检界面，每个屏幕结束的时候都会等两秒才进入下一个屏幕，很浪费时间
+## 开了这个选项之后就不会等了
+[Tweaks.TimeSaving.SkipStartupDelays]
+
+## 跳过启动警告
+## 跳过 SDEZ 启动时的 WARNING 界面
+[Tweaks.TimeSaving.SkipStartupWarning]
+
+## 跳过乐曲开始
+## 跳过乐曲开始界面
+#[Tweaks.TimeSaving.SkipTrackStart]
+
+## 闲置时关闭灯光
+## 在游戏闲置时关闭外键和框体的灯光
+## “一闪一闪的 闪的我心发慌”
+#[UX.DisableLightOutGame]
+
+## AutoPlay 时不保存成绩
+[UX.DontRuinMyAccount]
+## AutoPlay 激活后显示提示
+#ShowNotice = true
+
+## Festa 开关
+## 控制 “Festa” 模式 UI 的显示。如不开启，则不会更改设置，由 Event 或者服务器控制
+#[UX.FestaControl]
+## 启用 Festa
+## 是否显示 “Festa” 模式 UI
+#IsFesta = false
+
+## 两位数曲目修复
+## 让右上角的当前曲目数字可以显示两位数（在普通模式中）
+#[UX.FixTrackNumDisplay]
+
+## 按 Enter 键获得 KLD 里门的钥匙 (DXPASS)
+[UX.GrantFinalGateKey]
+
+## 自定义自检警告
+## 自定义硬件警告，可配置在指定硬件自检失败时阻止游戏启动并显示报错画面，开启下方的错误类型以配置需要关注的错误。
+#[UX.HardwareAlert]
+## 原始语言显示
+## 如果启用，所有硬件警告将会使用游戏原本的语言显示，例如 SDEZ 就会用日文显示报错。如果你安装了任何汉化包，你应该关闭这个选项。
+#UseOriginalGameLanguage = true
+## 1P 触摸屏
+#TouchSensor_1P = false
+## 2P 触摸屏
+#TouchSensor_2P = false
+## 1P LED
+#LED_1P = false
+## 2P LED
+#LED_2P = false
+## 玩家摄像机
+#PlayerCamera = false
+## DX Pass 1P
+#CodeReader_1P = false
+## DX Pass 2P
+#CodeReader_2P = false
+## 二维码扫描摄像头
+#ChimeCamera = false
+
+## 隐藏乱码曲
+## 在正常模式中，隐藏乱码曲 Xaleid◆scopiX
+[UX.Hide1879]
+
+## 自制谱隐藏
+## 在选曲界面一键隐藏所有自制谱，或对一部分用户进行隐藏
+#[UX.HideSelfMadeCharts]
+## 默认隐藏
+## 登录时默认隐藏自制谱
+#DefaultHide = false
+## 切换自制谱显示的按键
+#Key = "Test"
+## 长按
+#LongPress = false
+## 黑名单
+## 该文件中每行一个用户 ID，当这些用户登录时隐藏自制谱
+#SelfMadeChartsDenyUsersFile = "LocalAssets/SelfMadeChartsDenyUsers.txt"
+## 白名单
+## 该文件中每行一个用户 ID，只有这些用户登录时才显示自制谱
+#SelfMadeChartsWhiteListUsersFile = "LocalAssets/SelfMadeChartsWhiteListUsers.txt"
+
+## 打一首存一首
+## 打完一首歌的时候立即向服务器保存成绩
+[UX.ImmediateSave]
+## 显示保存中提示
+#ShowTip = true
+
+## 判定详情统计
+## 在游戏总结的计分板中显示击打误差的详细信息（以帧为单位）
+#[UX.JudgeAccuracyInfo]
+## 保存路径
+#SavePath = "JudgeAccuracyInfo"
+
+## 因 AmDaemon 未运行而黑屏时显示警告
+[UX.NoAmDaemonAlert]
+
+## 一键登录与登出
+## 一键跳过登录过程直接进入选歌界面，或在选歌界面直接结束本局游戏
+#[UX.OneKeyEntryEnd]
+## 按键
+#Key = "Service"
+## 长按
+#LongPress = true
+
+## 一键重开和跳过
+## 在游戏中途一键重试（1.30+）或跳过当前谱面
+#[UX.OneKeyRetrySkip]
+## 重开按键
+#RetryKey = "Service"
+## 重开长按
+#RetryLongPress = false
+## 跳关按键
+#SkipKey = "Service"
+## 跳关长按
+#SkipLongPress = true
+
+## 练习模式
+#[UX.PracticeMode]
+## 按键
+## 显示练习模式 UI 的按键
+#Key = "Test"
+#LongPress = false
+
+## 歌曲快速结束
+## 音符结束之后显示像 AstroDX 一样的「跳过」按钮
+#[UX.QuickEndPlay]
+
+## 歌曲详情
+## 选歌界面显示选择的歌曲的详情
+#[UX.SelectionDetail]
+## 显示友人对战目标分数
+#ShowBattleAchievement = false
+
+## 狂暴引擎
+## 可能缓解掉帧，但也可能把狂暴转移到用户身上
+#[Utils.AntiLag]
+## 后台运行
+## 游戏未取得焦点时也运行
+#ActivateWhileBackground = false
+## 高优先级
+## 将游戏设为高优先级
+#SetHighPriority = true
+
+## 显示帧率
+#[Utils.DisplayFrameRate]
+
+## 实时触摸显示
+## 在游戏过程中在副屏显示触摸输入，可用于调试吃和蹭的问题
+#[Utils.DisplayTouchInGame]
+## 将上屏改成白底
+#WhiteBackground = false
+## 默认显示
+## 关了的话，可以用按键切换显示
+#DefaultOn = true
+## 切换显示按键
+#Key = "None"
+#LongPress = false
+
+## 自由模式时间修改
+#[Utils.FreedomTimer]
+## 秒数
+#Seconds = 600
+## 无限时间
+#InfinityTime = false
+
+## 网络请求日志
+## 将网络请求输出到 MelonLoader 控制台
+#[Utils.LogNetworkRequests]
+## URL
+#Url = true
+## 请求
+#Request = true
+## 省略以下请求
+#RequestOmittedApis = "UploadUserPhotoApi,UploadUserPortraitApi"
+## 响应
+#Response = true
+## 省略以下响应
+#ResponseOmittedApis = "GetGameEventApi"
+## 仅输出错误
+## 仅输出出错的响应，不输出成功的响应
+#ResponseErrorOnly = false
+
+## 用户 ID 日志
+## 登录时将 UserID 输出到日志
+#[Utils.LogUserId]
+
+## 移动正解音
+#[Utils.MoveAnswerSound]
+## 游戏内设置
+## 在游戏内添加设置项给用户，使用户能够在游戏内调整正解音偏移量。如果关闭此选项，则就算用户之前设置过，也会忽略。
+#DisplayInGameConfig = true
+## 1P 偏移量
+## 正解音偏移量，单位为毫秒，此设定值会与用户游戏内的设置相加。增大这个值将会使正解音出现得更晚，反之则更早。
+#MoveValue_1P = 0.0
+## 2P 偏移量
+## 与 MoveValue_1P 作用相同。
+#MoveValue_2P = 0.0
+
+## 屏幕位置调整
+## 屏幕位置调整。适用于手台对不齐的情况，可以分别调整每个屏幕区域的位置
+## 在游戏中按键开启调整模式
+## 此功能会对性能产生一定影响
+## 必须同时开启 ExteraMouseInput 才能使用鼠标模拟触摸
+#[Utils.ScreenPositionAdjust]
+## 上屏紧贴着下屏
+#CompactMode = false
+## 进入调整模式的按键
+#AdjustKey = "F10"
+
+## 崩溃报错
+## 在游戏中显示错误日志窗口而不是关闭游戏进程
+[Utils.ShowErrorLog]
+## 崩溃窗口
+## 使用新版错误报告生成器
+#UseNewErrorHandler = true
+
+## 灰网时显示原因
+[Utils.ShowNetErrorDetail]
+
+## 自定义按钮
+## 从指定目录加载按钮贴图
+#[Fancy.CustomButton]
+## 贴图目录
+## 按钮贴图的目录
+#ButtonDir = "LocalAssets/Buttons"
+
+## 自定义点数文本
+## 自定义中间和右上角的 "CREDIT(S)"（可用点数）文本
+#[Fancy.CustomCreditsString]
+## 点数文本
+## 用于替换 "CREDIT(S)" 的自定义文本，留空则为空白
+#CreditsString = ""
+## 隐藏点数
+## 隐藏 "CREDIT(S)" 后的可用点数数量
+#HideCreditsNumber = true
+
+## 开场视频
+## 播放自定义乐曲开场视频
+#[Fancy.CustomIntroCinematic]
+## 开场视频文件夹的路径
+## 该文件夹应包含开场视频文件 (mp4/acb/awb)
+## 视频文件命名: Enter_xxx.mp4 (左右屏播放同一视频) 或 Enter_xxx_L.mp4 + Enter_xxx_R.mp4 (左右屏播放不同的视频)
+## 音频文件命名: Enter_xxx.acb + Enter_xxx.awb (可选, 无音频文件时静音播放)
+## xxx = 乐曲ID, 文件夹内可以包含多个乐曲的开场视频
+## 使用 MaiChartManager 中的工具可以快速转换视频
+## 效果演示: https://www.bilibili.com/video/BV1jTxVzjETG
+#IntroMovieDir = "LocalAssets/IntroMovies"
+
+## 自定义 Logo
+## 用自定义的图片替换「SEGA」和「ALL.Net」的标志
+#[Fancy.CustomLogo]
+## SEGA Logo 目录
+## 从此目录中随机选择一张 PNG 图片用于「SEGA」标志
+#SegaLogoDir = "LocalAssets/SegaLogo"
+## ALL.Net Logo 目录
+## 从此目录中随机选择一张 PNG 图片用于「ALL.Net」标志
+#AllNetLogoDir = "LocalAssets/AllNetLogo"
+## Logo 全屏幕
+## 将标志全屏占满下屏幕
+#LogoFullScreen = false
+
+## 自定义店铺名
+## 自定义拍照的店铺名称
+## 同时在 SDGA 中会启用店铺名称的显示（但是不会在游戏里有设置）
+#[Fancy.CustomPlaceName]
+## 店铺名称
+#PlaceName = ""
+
+## 自定义皮肤
+## 提供自定义皮肤的能力（高级功能）
+## 从自定义路径中加载皮肤贴图
+#[Fancy.CustomSkins]
+## 皮肤目录
+#SkinsDir = "LocalAssets/Skins"
+
+## 自定义难度显示
+## 自定义在歌曲开始界面上显示的难度贴图 (并不是真的自定义难度)
+## 需要启用自定义皮肤功能
+## 会通过自定义皮肤加载四个图片资源: musicBase, musicTab, musicLvBase, musicLvText
+#[Fancy.CustomTrackStartDiff]
+
+## 自定义版本文本
+## 把右上角的版本更改为自定义文本
+#[Fancy.CustomVersionString]
+## 版本文本
+#VersionString = ""
+
+## 闲置播放紫谱
+## 在闲置时的演示画面上播放紫谱而不是绿谱
+#[Fancy.DemoMaster]
+
+## 圆弧判定对齐
+## 让圆弧形的 Slide 的判定显示与判定线精确对齐 (原本会有一点歪)
+## 就像 majdata 里那样
+#[Fancy.GamePlay.AlignCircleSlideJudgeDisplay]
+
+## Break 星星闪烁
+## 这个 Patch 让 BreakSlide 的 Critical 判定也可以像 BreakTap 一样闪烁
+## 推荐与自定义皮肤一起使用 (否则视觉效果可能并不好)
+#[Fancy.GamePlay.BreakSlideJudgeBlink]
+
+## 自定义 Note 类型
+#[Fancy.GamePlay.CustomNoteTypes]
+
+## 隐藏曲目信息
+## 在歌曲开始界面, 把 TRACK X 字样, DX/标准谱面的显示框, 以及画面下方的滴蜡熊隐藏掉
+## 录制谱面确认用
+#[Fancy.GamePlay.DisableTrackStartTabs]
+
+## 扩展音符池
+## 增加更多待命的音符贴图，防止奇怪的自制谱用完音符贴图池
+[Fancy.GamePlay.ExtendNotesPool]
+## 增加数量
+## 要增加的对象数量
+#Count = 128
+
+## WiFi 判定翻转
+## 这个 Patch 让 WiFi Slide 的判定显示有上下的区别 (原本所有 WiFi 的判定显示都是朝向圆心的), 就像 majdata 里那样
+## 这个 bug 产生的原因是 SBGA 忘记给 WiFi 的 EndButtonId 赋值了
+#[Fancy.GamePlay.FanJudgeFlip]
+
+## 修复非 C 区 Hold
+## 使游戏可以正常判定非 C 区的 Touch Hold。实验性实现，据反馈不稳定
+#[Fancy.GamePlay.FixJudgeTouchHoldInNormalArea]
+
+## 隐藏烟花
+#[Fancy.GamePlay.HideHanabi]
+
+## 精细判定显示
+## 更精细的判定表示
+## 需开启 CustomSkins 并下载资源文件
+## https://github.com/hykilpikonna/AquaDX/releases/download/nightly/JudgeDisplay4B.7z
+#[Fancy.GamePlay.JudgeDisplay4B]
+
+## 真随机判定
+## 让 AutoPlay 的随机判定模式真的会随机产生所有的判定 (精确到子判定)
+## 原本的随机判定只会等概率产生 Critical, LateGreat1st, LateGood, Miss(TooLate)
+## 这里改成三角分布产生从 Miss(TooFast) ~ Critical ~ Miss(TooLate) 的所有 15 种判定结果
+## 当然, 此处并不会考虑原本那个 Note 是不是真的有对应的判定 (比如 Slide 实际上不应该有小 p 之类的)
+#[Fancy.GamePlay.RealisticRandomJudge]
+
+## 允许 1v1 星星
+## 允许形如 "1v1" 的，起点和终点相同的 v 型星星
+#[Fancy.GamePlay.ReviveFinaleVSlide]
+
+## 星星缩入动画
+## 使 Slide Track 消失时有类似 AstroDX 一样的向内缩入的动画
+#[Fancy.GamePlay.SlideArrowAnimation]
+
+## 星星渐入
+## 让星星在启动拍等待期间从 50% 透明度渐入为 100%，取代原本在击打星星头时就完成渐入
+#[Fancy.GamePlay.SlideFadeInTweak]
+
+## 反转星星层级
+## 反转 Slide 层级, 使新出现的 Slide 像旧框一样显示在上层
+## 启用以支持通过叠加多个星星达成的变色效果
+#[Fancy.GamePlay.SlideLayerReverse]
+
+## Hold 夹 Tap
+## 让普通模式也能像宴会场一样，在 Hold 音符期间正常判定其他音符，兼容特殊设计谱面（如飞行志）
+## 实验性功能，未测试对其他谱面的影响
+#[Fancy.GamePlay.TapInHoldFix]
+
+## 延迟开始动画
+## 推迟了歌曲开始界面的动画
+## 录制谱面确认用
+#[Fancy.GamePlay.TrackStartProcessTweak]
+
+## 移除圆形遮罩
+#[Fancy.HideMask]
+
+## 无限闲置视频时长
+## 忽略闲置时的视频广告画面的5分钟总时长限制
+[Fancy.IgnoreCommercialTimeout]
+
+## 随机 BGM
+## 在配置的目录下放置了旧版游戏的 Mai2Cue.{acb,awb} 并重命名的话，可以在播放游戏 BGM 的时候随机播放这里面的旧版游戏 BGM
+## 无法在 2P 模式下工作
+#[Fancy.RandomBgm]
+## Mai2Cue 目录
+#Mai2CueDir = "LocalAssets/Mai2Cue"
+
+## 转场动画
+## 修改转场动画为其他变种
+#[Fancy.SetFade]
+## 转场类型
+## 类型: Non-Plus 0, Plus 1. (SDEZ 1.60 限定可选 Festa 2)
+#FadeType = 0
+
+## 曲目伪装术
+## 仿 KoP 决赛曲揭晓时的曲目信息隐藏特性，配合自定义乐曲开场视频功能使用效果更佳
+#[Fancy.TrackCamouflage]
+## 曲目伪装信息和封面文件夹的路径
+## 曲目伪装信息的文件名为 <曲目ID>.toml，TOML 文档可填入伪装后的曲目名（Name）和曲师（Artist）
+## 伪装封面的文件名为 <曲目ID>_jacket，支持 jpg 和 png 格式
+#CamouflageDir = "LocalAssets/Camouflages"
+
+## 触发器
+## 在一定时机执行命令的触发器
+#[Fancy.Triggers]
+## 闲置时执行
+## 在游戏闲置的时候执行指定的命令脚本
+## 比如说可以在游戏闲置时降低显示器的亮度
+#ExecOnIdle = ""
+## 登录时执行
+## 在玩家登录的时候执行指定的命令脚本
+#ExecOnEntry = ""
