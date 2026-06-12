@@ -6,20 +6,17 @@
   
   <title>初次探索maimai HDD | Apricity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="解包  下载 .APP 源文件，这里使用来源于SDGB_1.55.01_20260302122354_0.app | 𝙵𝚛𝚊𝚐𝚛𝚊𝚗𝚌𝚎的文件。 使用 fsdecrypt 解包 .app 文件获得 .vhd 文件。 fsdecrypt.exe SDGB_1.55.01_20260302122354_0.app .vhd 文件生成在 .app 文件目录下。 从 .vhd 文件中提取">
+  <meta name="description" content="内容已加密，请输入密码阅读">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初次探索maimai HDD">
 <meta property="og:url" content="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/">
 <meta property="og:site_name" content="Apricity">
-<meta property="og:description" content="解包  下载 .APP 源文件，这里使用来源于SDGB_1.55.01_20260302122354_0.app | 𝙵𝚛𝚊𝚐𝚛𝚊𝚗𝚌𝚎的文件。 使用 fsdecrypt 解包 .app 文件获得 .vhd 文件。 fsdecrypt.exe SDGB_1.55.01_20260302122354_0.app .vhd 文件生成在 .app 文件目录下。 从 .vhd 文件中提取">
+<meta property="og:description" content="内容已加密，请输入密码阅读">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/%E9%BB%91%E5%B1%8F%EF%BC%8C%E6%98%AF%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F.png">
-<meta property="og:image" content="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/%E7%AC%AC%E4%B8%89%E5%90%AF%E5%8A%A8%E5%B1%8F.png">
 <meta property="article:published_time" content="2026-06-11T18:08:12.000Z">
 <meta property="article:modified_time" content="2026-06-11T18:08:12.000Z">
 <meta property="article:author" content="Pavilions Lawrence">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/%E9%BB%91%E5%B1%8F%EF%BC%8C%E6%98%AF%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F.png">
   
     <link rel="alternate" href="/atom.xml" title="Apricity" type="application/atom+xml">
   
@@ -98,83 +95,35 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="解包">解包</h2>
-<ol>
-<li>下载 <code>.APP</code> 源文件，这里使用来源于<a target="_blank" rel="noopener" href="https://xn--fcx.xn--4pv/SDGB/1.55/SDGB_1.55.01_20260302122354_0.app">SDGB_1.55.01_20260302122354_0.app | 𝙵𝚛𝚊𝚐𝚛𝚊𝚗𝚌𝚎</a>的文件。</li>
-<li>使用 <a target="_blank" rel="noopener" href="https://gitea.tendokyu.moe/beerpsi/fsdecrypt/releases"><code>fsdecrypt</code></a> 解包 <code>.app</code> 文件获得 <code>.vhd</code> 文件。 <code>fsdecrypt.exe SDGB_1.55.01_20260302122354_0.app</code> <code>.vhd</code> 文件生成在 <code>.app</code> 文件目录下。</li>
-<li>从 <code>.vhd</code> 文件中提取出 <code>Package</code> 目录。</li>
-</ol>
-<h2 id="修补">修补</h2>
-<ol>
-<li>
-<p>解压 <a target="_blank" rel="noopener" href="https://gitea.tendokyu.moe/TeamTofuShop/segatools/releases"><code>segatools</code></a> 中的 <code>mai2.zip</code> ，将解压获得的文件复制到 <code>Package\</code> 目录下。</p>
-</li>
-<li>
-<p>将 <a target="_blank" rel="noopener" href="https://github.com/LavaGang/MelonLoader/releases/latest"><code>MelonLoader</code></a> 解压得到的文件复制到 <code>Package\</code> 目录下。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-</li>
-<li>
-<p>将 <a href="AquaMai.toml"><code>AquaMai.toml</code></a> 复制到 <code>Package\</code> 目录下。<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p>
-</li>
-<li>
-<p>在 <code>Package\</code> 目录中创建 <code>Mods</code> 目录。<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p>
-</li>
-<li>
-<p>下载 <a target="_blank" rel="noopener" href="https://portal.mumur.net/mai2/aquamai"><code>AquaMai.dll</code></a> 并将 <code>AquaMai.dll</code> 复制到 <code>Package\Mods\</code> 目录下。<strong>实测若 <code>AquaMai.dll</code> 的版本大于 <code>1.5.19</code> 会崩溃！</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1:3">[1:3]</a></sup></p>
-</li>
-<li>
-<p>在 <code>Package\</code> 目录中创建 <code>option</code> 、<code>appdata</code> 、<code>amfs</code> 三个新目录。</p>
-</li>
-<li>
-<p>将游戏 <code>ICF</code> 文件重命名为 <code>ICF1</code> 复制到 <code>amfs</code> 目录中。（注意版本一致）</p>
-</li>
-<li>
-<p>使用下载的 <a href="segatools.ini"><code>segatools.ini</code> 示例</a>和 <a href="launch.bat"><code>launch.bat</code> 示例</a>替换 <code>Package</code> 目录中的同名文件。</p>
-</li>
-<li>
-<p>使用 <a href="XenonUnpack.exe"><code>XenonUnpack.exe</code></a> 脱壳 <code>amdaemon.exe</code>。</p>
-</li>
-<li>
-<p>将 <a href="odd.sys"><code>odd.sys</code></a> 和 <a href="odd-loader.bat"><code>odd-loader.bat</code></a> 复制到 <code>Package</code> 目录。</p>
-</li>
-</ol>
-<h2 id="运行">运行</h2>
-<ol>
-<li>
-<p>以<strong>管理员权限</strong>运行 <code>odd-loader.bat</code>，不要关闭。</p>
-</li>
-<li>
-<p>运行 <code>launch-bat</code>。</p>
-</li>
-</ol>
-<h2 id="故障排除">故障排除</h2>
-<h3 id="Game-processes-have-terminated">Game processes have terminated</h3>
-<p>启动后若只有一个命令行窗口并有如上提示，通常是缺少某个文件夹或未正确挂载 <code>odd.sys</code>。请仔细核对上述步骤。</p>
-<h3 id="黑屏，是吗？为什么呢？">黑屏，是吗？为什么呢？</h3>
-<p><img src="%E9%BB%91%E5%B1%8F%EF%BC%8C%E6%98%AF%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F.png" alt="黑屏，是吗？为什么呢？"></p>
-<p>除了图片中的提示外，出现此种情况也有可能是缺少某个文件或文件夹（如 <code>option\</code>）导致的。请仔细核对上述步骤。</p>
-<h3 id="卡第三屏">卡第三屏</h3>
-<p>若卡在第三启动屏（如下图），可以尝试将机台改为标准机台或关闭 <code>店内招募</code> 功能。<img src="%E7%AC%AC%E4%B8%89%E5%90%AF%E5%8A%A8%E5%B1%8F.png" alt="第三启动屏"></p>
-<p>按 <code>测试键</code> 通常为数字区7键（<code>Alpha7</code>）进入测试模式，<code>一号键</code> 通常为 <code>W</code> 和小键盘区8键（<code>KeyPad8</code>）向上移动选项，<code>四号键</code> 通常为 <code>C</code> 和小键盘区3键（<code>KeyPad3</code>）向下移动选项，<code>服务键</code> 通常为数字区8键（<code>Alpha8</code>）向下移动选项，<code>测试键</code> 确定选项。进入 <code>游戏设置</code>，将 <code>设定群组内的标准机</code> 改为 <code>标准设定机</code>。或将 <code>店内招募设置</code> 改为 <code>OFF</code>。</p>
-<p><code>segatools.ini</code> 和 <code>AquaMai.toml</code> 均可配置键盘映射，后者优先级更高。</p>
-<h3 id="灰网">灰网</h3>
-<p>通常表现为在第二屏或网络测试中显示 <code>标题服务器 坏</code> 或灰色网络标识。</p>
-<p>尽管影响因素众多，但在本示例中，这是配置文件 <code>AquaMai.ini</code> 中配置项 <code>[GameSystem.RemoveEncryption]</code> 未禁用导致的。在此行下方新增一行 <code>Disabled = true</code> 即可解决。</p>
-<h3 id="无声音">无声音</h3>
-<p>这是缺少 <code>mai2.ini</code> 或里面缺少配置项</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Sound]</span></span><br><span class="line"><span class="attr">Sound8Ch</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>导致的。</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><code>MelonLoader</code> 和 <code>AquaMai</code> 也可以通过 <a target="_blank" rel="noopener" href="https://github.com/MuNET-OSS/MaiChartManager/releases/latest"><code>MuNET-OSS/MaiChartManager</code></a> 安装。安装后 <code>Mods</code> 目录会自动创建。在 <code>MaiChartManager</code> 中 <code>Mod界面语言</code> 选择 <code>让我们说中文！</code> 后会自动生成 <code>AquaMai.toml</code> 文件。 <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a> <a href="#fnref1:3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt"
+     data-hbe-format="4"
+     data-wpm="密码错误，请重试"
+     data-whm="验证失败，请联系博主"
+     data-salt="e6f59b4e3a2f13e31ec97e36b88163ff4581b00e95947634d96b5157c92ea894"
+     data-nonce="1af9af7225a3a37428d26038"
+     data-kdf-iterations="250000"
+     data-auto-save="false">
+  <script id="hbeData" type="hbeData">
+    a1bcbd7bd1c87aca6c212739a8ecaf96ec502fcfd2851db12ae9ebe34c88a22d6aed292653ea63adf1df26208f77a0189ded3746bffd7171e84ac53e137f76a087a3f56e0bd1ddf172d3ac2bd24367320ef5d65a3d2a4a4522904f5df2a58dea2b01139bef018a7a2afabe35fe780070e8a97ca6a33e88c30646aca7abd20adabef63e6a85a14b5e34250a69cb5c4d96d8d75b50ef9d12b8ec92db368629b11b003d81b5d90ab25dcba1a2574d7d3e3d6a6a6f2b2a98e7c4798aeecb9ab8388fcabdfcea47c1bf8c8f1c2ee72c1130c8f3e8462ce8b8aeff67ebc494de2b8e03f08e8c8231217fa6c44e824573ef66a818b92a076c8016710a838830f60b47670b45f44b7d6376ef4b68ad76e400695cd0a4f554e32f61db697156310c7ecd997ff93147687214cfc5ec7bed250c8e9124105b09b432acce49ec5b7a22c0f8eb321fa6fe67f464c431eb0f4f9c120bee9c3f18c6afc531efa78a33866add350cf352d91a0231e9ccbd1017648449babdf499e9a5a3c1a41a66dde9e444a7aaec6d9556d11dadfb5718470dab5ceb16b6a9626be6da15a6607489ec2c39d25d76c907465dbcfabbccd0c3acc28b2bcbfbfe3fe70271f81558106158c779f0934ae60b89c49da51d2fb7fb4ffb69cc1d50852b3f878ba1f690d4655c61680e236430bc7db0ebd2f171b3fb219b7b82cc3cb1f1864706b15671566eaded003014a9b15bfd59e356f74da3ad3ba4fe3ec7305bd069e2e9947af8c66bfab0376e5d834a168335cbf7f46eb50baab23da1b807f09580810e187217c9a6da8ec253cb13911a4a94a5b62665d541d2f6d147d18f2df01605068be735b0f526ea0cb1001d05646706864c635b9dd11e4f9d1d731b232a693b478b9ef2f695b2a136a4d20ea6b653151b997ae58daa36b7fea00c9c9f7bc578c7568c3f097803485b6092ad48ddeebc19ce4297b8baf0a2f9c04d2dc20f48ccc950de4aa2a1adcb6246926260929a49f1f94929c4682eecc8ba05f546f59cefa3ea76065a04b498e08589744fe98af6bc85bd1e7ae5314d72c7e9ea949f5b4f013097782f0bd6fe415b96c8eb16930c9df52cc399e9930e1895231d50a2f644d8301c2f17b12845374c2222dca55b7a7af8157f1fbc4e1c30b8eb46e36f6ba75b6a423c15d378fa324fc9f8f7ace1a8a28115817f75d94c5d6abf92c567020befcfab999c427d9edbafb4b212098f13c16ce27bceba70f9b493fbbea7aa1dcd93fb9d7dbbea5fd1dc65a54ccad8692c0395fadbe44caa200a6b3670d665d1d9b4873e14507359e5c15e0505cae466e3a7fa6ee74af7579fffe030953c327a07566035233bb5f74d8a60c6c7cd115c227d13d01e24382e86ea99185807c04da944ab401af6993560ca40d91742dc7ee4692f95e2cc93f31b039b90d8083cc605804e380c9cb07db69db319508a8b56fe7d2d144b493219be305a1eb1ac98c196c0a2b2e72fd6c0bbf95d5bf219697e86642bec7c3d429b80d1a9dd9a85d89cac0084f77e112c0136a121e908b0a29d9c62a4ae73add5ed7675f248bddbc114d73d76825f6813a408cf6ced37f33ebb2b5a22ae0f8a7353b56810e7bdd15ba524a7489343b69152367147feb4276f3d1748f9b131bdf2d147710d4996625288b50ff745bfa77ce2c5f1b27becd98c025b8333a1e0955aa2401c3fc06e755b5b674160150b67b810f6bde8335f2e61020711904ea92469c8b97bd0cabece1393f45eaaa4faea04e4ea51a642dcbe62142d01373dac861786a0bd8766d513d35c8f2a81f980f58b230241c477efce8af82b87b4eeed039093b8a08f2e44ee94ed0910ad8aba2e07a5688c1998c86b89b02cb69162d3039033eecf2d7a2ef39f26c723731bb4b16cbc335ae221094dbe0ae31814193d643bcc4e4b47063945247d97d1d976db6cb46e28ebec1f3d00cb0e6dad45cd04024eb9b77f94be886aacc0daf06ed83b43e32fa429cf4c42afba5cb51c0a91e1c29f5561dac1ec7421067642f220aa639a9dfdd2e5ea8f809da1c12c2932088ed354ae998bcaffa64656adcf2af2aa363132dac2676456d819c318326d4b8befd7c2d10c6df401777f95661c84a2f32fca9804882a99a6eb8b1a44d3c4fe9fc79946f7622ef7b8921803641161e18cc8c4af418801c1c3698b4f800ba6c4729741835de185425a6a73009bff40edfd39535c9e30454dab66891926f8e946aa19c5725b5d05218aeee47ea0965d82bf3a9ea91e7a4de30f7447263456ff4b0ad3f6f37e4b8a25cfba1cb1efcaf468603fbfe874f935a97c783682fc26af5f8d7cfd56916b45a874b2118edc75997e7241ae52735d125899c4a3953de214dc7d79d7d342232c69bd247589f9049fd865f96dcafb46d227852c449810c36b424f288492571039c029d7c9093caafd5fedef4379ee1a4d3f5b4bfa41eb222dcfde72567f8343a5b0d20065338dfc9c56244a8ef76474b9c9cc9d0a91a69dac379b5c570a991366e454cf98d84b5568b2484432fc63b411de8894b83b224e8a4287acc7e611f8d5fb6ee0f41f4cc44a3d423cc59c3dff67cba6e794e2d13bc4b7469173d1ecefd19969c716f22f3b617c0e574f8f9dc3ef301dd8c8640e92d586f8b89d8d22d4d9625d0c2212a230a6b59f268bf2608a77dbacb568bdc10819f65e6633430de8442a14c595be32ad106ccb918fac9ed8f94f85634ec372354463bd795646990c13e66f38fcf2fd3f9f3b1b9c924b2cf0eca25219af23119b13283e2eda5444a246d3bb27979378724cee9f06bc2a0224cf413f8cce4aa563476c28f9d25ada86979c0ad655c06bc7477504cabed37ed40fba83144284c462efae57173c1a3a1b388357dbd2f06bc6bd541db39a9b39958c51270e180db49fb4ed1d525298bbfb5d421e54a0d551d492444c3de5b738e82f790d2dd325d04218ce2362384d48376582073c3e850a08a61e2aca97c41ae6876404836dc14cef31a2e79420dd84c59298ee44f4ee02038431f38e42afc25888caec71b4333c96392e812fda33d99d995627e114f1eb931bf569029a22a132d62868a0d6d8de363ec81e965f74223d521d8b2bd7c96dffb13349ecc9c04b998c1eb0b9cad0219aabb2b1043df5a407df43fb0ae5879fd8f428369ce2da05c42a79d88c113fca08c5abbe4772c9408ae04dfebf13847ade3325879b48fca5abf6e141d1da9e97a346a17156fed9f8639ff6c78527671bf8ae94339502b3c14e85c453a1338f83e165736dae83e3a4d5b6e54ff54ee14473055c08eff0869ccfb4c818cb8dfdafc37cdb23dc33841f2af58c1b873f4e2fead46b43e80263da7476a12c694d4984ad3e22f9f6373d2ce562329c12a3cc578f85c95f80d935de189ac59fb1e143b8c1f024a3c8af491a1bb1461454616d6af85bccf3d3c3c724a18d44a1754e6fbd31107d7832b1bd67599bf8b64fc1abe52fdd399bcd8a477722b7a7529c75bdb916395083c65c7d81287bfd4b93cbb7eecd1aa0919b5b97c32134cbf4de8bdca98f878a9f628c2c3944177a4af870e30f5b1a01c1793dacc7cc34a7766601efb0ff6a98b3ff40e58d7fdb56c7cdf80c3c0b631c455f3502ad074722bcab783b866839465e3f7d62ffc2c48b98839afe24a0e66ee0e408e97b8f6690590efe46e907fd47762a7855e28b11d2db8729c36ffc1e71ff62e5e776f20a38b4a7ed484d75681c06581da9401962a07c802b3f7661e120aa929ed851141a11844173cd194187cadb06de5a27b979b168fb986a25de9b4c270b0d246a58d6cc09eb8c1ead2fadcd921b5a088c4b602d0b3a3fb7a881daf45bec6891124ebd1191a302597025bbea98ef51ed24f99767980f3610dd9db97667801428157fb7f8dbf4d38e78391ac737814e481e7cb0afeda2ee4e2d80037f88119627e193cd969ae29f8fad0a788319dcb65aa6b3d92c66b589e5ed0454238b1f7b10c6ba95ba5dbdabbe4b429ada280abfbf485ba7a77519adaa6a60b8f461f52966c180b156f5814eb3368caea55d7a810d1c9f4a04b1a80d642b013ba792c1bc04fb156a9aa47a3e5531ad3cce86f3a5ab7ae4b09acb87daa162ba7c7303691bf6b83b6616890b8049c507b621c580ce80889b3a2fd04cb81c5a57f87f2b40b3c3922e15f0e82c687425ffb74cc11d490309232a651bf6ce428dadb02eba4c319db99b9245d4aaef1043d3f01d284f0098b32ea9348775cb3fc229d379804f8766f93ed95cee39b694857797a5dca9213c69ccab2e23a22c54d93de97a7405fe51fda1137547df62b299a57e04a06dd7167f6686b609077f45c3b7eb48b1a9583749d987f85e8a2c79ae7e82a39504c3311b588e4bc7011287198f2e16a6fe63402081190b304d2726f36cccf6274720b27a754e69e204fd2797c6275098b4de15493978ea2a8c73c855e63363827cd32da9b970cdffe151fdd3ae82e76d5b553c85e741e9c1bf58111cfc7669aee72f75cffe709371c6e642d4dc23088d2c9355225c179d780b87f38092dcfc8fab2f440993d41b05ef3a139d99503e68b4a8d04af0c5382b81e6172bdee46d6e729689b6d3199b3e870cad7e72a541f527e959508eb293dba0ee8c2b7eca5ccfa123305995012b8985d9ea684023d1bf5c4509a5546f8e11da107336d9ea95e4a2a23341dc57392a6e25dd3ef3a1e2571901a46b7abe1e87651e38b138b3cbff79641a56ec1cd11bb08f8cdc68cf01c68d018aae80527816aaffd7f005800e4b7458c1dc18902156cbfaab18721f416760c3c3bbb4cb700dc7e888a163d38d271a7445e389153917c0e6d2f9758eadb7fc64b2dc4897e0ddf02056a212fa3438de531e79945408cd1a945bba92d07fe58ff72d43ca789325cdd535bba37e69b0d4b67043b29a04d1f8d7746afd5ce64f1b88444c23538aa2c1ec23e51994b99a02b31e62b28bc2b7c10884eeede15a5075e6994f600947b972371869df900efab5f34db28b1d3997e89bfdf76b4fe72c0bdfbced36852f979069c0a0fa4861514f9bfe8aa910a3064357da355650fc7b7592062ea032e79a8f833f9ab9652fbef9c5bf0788b3d8cbe3c6df6f72df28e84da4fea689fde6db7f81419fdb2de20b92ad5d2ab4184d465f2ee63af23c69d02a62a5299eda6de2e3dca68f314a495078e9be87a40e9c1ccc9211652f0f772f2b1e93648b14a460f4147f23286eae2d74594a076ce0a0eb11f0973a0fd32e61bcad9f23e06eb3d450193a3bb8f25ba3fde70b45efdcd5ddc2016a283db1f0d0f6c05cab3def379455785b59780071e59559580f404f39239a4969a063a189005a1ed5a3dcdf30d6766a7d1a611667f4c540569e821e8d34c8af97b04f5b5dce1a2bf8d87b053747dab076abe424362dce5766c13509038d47cb9e8633cfe11e3c0d82bb3ecb46a314fc2b577fe6e4c92b75494f5ec77af97c2597bb9356394e7d69e193f8002cc4528a28635d36efdfa0029f934276e0c69ed63a30132a14aea4514c406376b43b64517620cf696f0af293ae6d343743f5e06d68ab1f034089459446aab9adc85d946232582221f8c10b9dfa11075976a54b9a320defc504ec04d3afcc9e04e15846e6090fb1079033592e205c1bc03d40f667f967e658bd166695fb4177fe4703f07d23fe7b9718bd44a0b99ae749b239381baebf4e7c9d6403b91c379d31e79ba40f4c087e6151dad7de48edc318c5da06b7c0c96afea8cfdf2cc3f58afe486680dc73b4ccd75cb7958ba6fd436e53999dbb2016868d5a38e8650d41f4a91d34f20fb93c1cde8e6f8f304df337af14f4f758776bb786a2a560703b0add4fb01e1dd72b3f0632a235e3bb531d1fdc4f01504264d0b3af96d79a0877c59990a104c004a1ccc298e395254e1952e3efa6d4aecc90f77ba17b63f188a4f736f5f432709115a9b93cc70ba96994847c1935e5986e977b0924da85f608dc9888ac309eec002e2acdb77e3aa023182ebf910043ee05d19117f3d54e2687666b81cf22a58c30fa59fce28f173aecd19167ef6f98dccf8305a28dcd728cca263a6d28eff94f7a2921284b15f1eb8d69744b33a4876a5cfd17ec3b0e48f0928b3b97c2cad0f16d41ca17cf38998d2c613b751be1b4db5304c9c96ae01903279c17724487be1ee21aed14d478afd7da3e211cc1074ef0e704c6e7849e3b4c4c78db9e918d71f2d06ce7102f54702bf18966d776fd26be0538cd8b6bdf49733f6a3f95d72d072881ed380af55aa53916b5783a5bfef09bf58c72269f29b5fe54a52267294c10516b316ee3d517f21c41a40b735af59d567f63d8ba9b785ef9ff1dd7d31875c18e9f9f5bb2a67a335eae9dee35d413a1bc62f48daca2af2cdd86ef3af241f0a5f5eb4ab02b103d081438f9ea9be188981a29b7aa32a8988beff5d4309a305e2347472b9387f8eddac28ee9f74f125a8484ad1c0b9c87cd927083b82c4260db2ecf38e06aebd2571c0695b6e590b802206eef4d4e9670f453719654881fb49b610435c8070aadf25b1e59e79f525bfd02e8ecba3f35c9448c92315240012583202db3e2684a54b5df19703b3f676c3f5d857717e7fd8524fdc1380ddc6df6e7a482503b0b3385fc147cfd0f67a999a251421e441d5d93eb130b3536990af35f04c68ae35084303cfbb72271e82370a8315541ad87df317a4f6fe05e2eaa7c17804b2faff80bfeb426f6a051d722357967061183c2142eacbe8540a2acf8784a09ca65bf5ff6cad1bcbbb7cbcb7825e6bf8480192fbe40f2db7800dd28d0dcd223c20c082b464b648a8a7582d0ee7b0d76874b9dd599241338b89fb6a913c1e10df5fd644fc76fbfd4a312b6cf056e6b6e83ef53eca51ce443e8de797862b6900e0c539decdd5c5c4bc74f3f8340e9110f5732558226cdcc467041d52bca2d7156132c1826e3189094124b6f9fbc1b12a1d15d88a0263f2d93b7fa7000b02c4bb206fa1f5dab66b16627f45892280e66a8f666500b3d5b1e8a7de1bd7907694ce59a6da02363d1e1ab40e936a27357768a9a18cd4ee66a69ab342af7a51a00b1ad77d2d6ea286b655553239e6dbf3cc1d7818c67468990d1106e844d7b5aa1fde612c6b9692722a4c1667028220f9aaf45654d422934ae7e60e77f083cfc16b602e13d73b717b132dcf26259b645bcce0ccc51a93a3451e4e339a9b3008aa8777c6d8538b392c8c158f429540a75d2ada1dfc9a7f547e40e366818fd591e7b5575a0fc548ca736f57a019dec8b54fbc5f7f491ff61d8ca45a9f7ad421a54f8cc96a5f0e6c5f02f86e9fd0258051aa291254ea082dc1d605a48b246e43d98ab4020e6b5fcba36fa4c3114bcae83e3ab8b902ac8bb97e4d358cd39d1ca8638f3d831ac910f997730227abe45eec2d150be6fa51c18983bf50c4a446746ff45389075dc856096460ad9b38d5acbdeee063cb96fd1071ac137fba9fdfc28a40a8003397193683d83453fe6e30a73c8ffe0c9a0a4ac3194bfcd953ab0c8d352c2df9f7b217b4b374ee756405c395b7848e69936b5baae73154f8e60ccd0081bf0f49c0cdd7a0aa281a70dd4801db933c3ba956faaf8cb151ea434584cd794f79a503ff4dbfae2787f8f92c6bfb6f8df0b89ce16bb7af315e3d50668b5fca07d396299f159e08d35b9c0fb30d22790afd35f51a4ec03262fa5fdffaabf74eee9281af4d5ac1b27df57388da4b6174c27bbc35b6245b39d2763365f72314840b584d351573148424de7fc58e51907b9c76e9f7453ea61dea79791787bee79f775845652e80ff42ad6f26b9124f8f55840c3ac30418b9c12d500cbe10bd07fd4cd3a72351ceec20638e44b93e74d85db1f1c23d127b586e0c7741a4398d2c6dca7649a9f30b2efbf344ab9e78d3f1510ab7c22609d58d4da4abca078898bd47c7391b3320d1eb6dbf14c05903b2e7b980f2f3fe97c3f422938f57d32a838fd3f943f001c68e8d3ed98cc52be48661aa500acf0df6e266a153a7af1e0d66e5470f09ae2843da8b7fede1bf874df4bf2ebf4102467c534e2b97acd6d77a802f7a5c0def84354228903ea5f48ea87b002a509a2fefd0f08b7de45ecff60395b8a80abbbcdd3f4ec7de9fc63d6e8262f26eab77d187ccbfab00b7c89e83a88c39aab5b9f0c0da01cbd4ad80b29d5afa2b414d75ae877f29f22c1e1a878b309613d666865610ec2ca451092436a00a5fcc0167a24bccbe02a67dc86b01c1eca3703ad218f86db391fd806663a206363cdb04a39a147be37737d9ca50ba610a56e9e5343e860c3328d654d800d42476ac45a6ed2b45468c084e1350e843ce49e54d0f40f6813a7a499217ff6137446582e0106fd5dce03717dbf664d3007288e6ed80e9f4ed499fed318a6253666f227af559efacfca84e81aceb20d5977c689062b1f9c89a1c6e77ff1bd76708cced1aea30b30ee37c50cc99146fe161bdd1a899e8e10a873e0cfe9e5e12400f2d8e1c067d83ba837b6f68a2eaa922c6f06ea37147c877eaea4760bba97e2c6aae5f6d022bedc86cbec2623d4550202ec957f0e2d8462acd3d8891beb42ff017d85add6900128cd0d3a6b5864a77f335853e5254c0e88c6916b60390851f5fac24647417e864bc07d802561aeac0c9178297b92c6a6338278dce804f79726b06c8ca34498dcf6fd1e2cef488bf4988bf0d82b859d785653b0a3095f391f419e61c7814915a4655ce24894642cbc26933d0f6c2b441b8e5679927eb1036d601a33a6fc773fed557bac046d028c9f03cba5b023e0fc793ae9e6678a73f67d6d78b77116c90101c6ae7745a00e5d046330fd5e20b305342d
+  </script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+      <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，请输入密码后查看内容</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">Decrypt</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/" data-id="cuidmiVAx6JWsa9dyN3QtG2z9" data-title="初次探索maimai HDD" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/" data-id="cuidPMJEj-8HH1TZbP5sLIRu0" data-title="初次探索maimai HDD" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       

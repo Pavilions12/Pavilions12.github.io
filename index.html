@@ -93,83 +93,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="解包">解包</h2>
-<ol>
-<li>下载 <code>.APP</code> 源文件，这里使用来源于<a target="_blank" rel="noopener" href="https://xn--fcx.xn--4pv/SDGB/1.55/SDGB_1.55.01_20260302122354_0.app">SDGB_1.55.01_20260302122354_0.app | 𝙵𝚛𝚊𝚐𝚛𝚊𝚗𝚌𝚎</a>的文件。</li>
-<li>使用 <a target="_blank" rel="noopener" href="https://gitea.tendokyu.moe/beerpsi/fsdecrypt/releases"><code>fsdecrypt</code></a> 解包 <code>.app</code> 文件获得 <code>.vhd</code> 文件。 <code>fsdecrypt.exe SDGB_1.55.01_20260302122354_0.app</code> <code>.vhd</code> 文件生成在 <code>.app</code> 文件目录下。</li>
-<li>从 <code>.vhd</code> 文件中提取出 <code>Package</code> 目录。</li>
-</ol>
-<h2 id="修补">修补</h2>
-<ol>
-<li>
-<p>解压 <a target="_blank" rel="noopener" href="https://gitea.tendokyu.moe/TeamTofuShop/segatools/releases"><code>segatools</code></a> 中的 <code>mai2.zip</code> ，将解压获得的文件复制到 <code>Package\</code> 目录下。</p>
-</li>
-<li>
-<p>将 <a target="_blank" rel="noopener" href="https://github.com/LavaGang/MelonLoader/releases/latest"><code>MelonLoader</code></a> 解压得到的文件复制到 <code>Package\</code> 目录下。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-</li>
-<li>
-<p>将 <a href="AquaMai.toml"><code>AquaMai.toml</code></a> 复制到 <code>Package\</code> 目录下。<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p>
-</li>
-<li>
-<p>在 <code>Package\</code> 目录中创建 <code>Mods</code> 目录。<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p>
-</li>
-<li>
-<p>下载 <a target="_blank" rel="noopener" href="https://portal.mumur.net/mai2/aquamai"><code>AquaMai.dll</code></a> 并将 <code>AquaMai.dll</code> 复制到 <code>Package\Mods\</code> 目录下。<strong>实测若 <code>AquaMai.dll</code> 的版本大于 <code>1.5.19</code> 会崩溃！</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1:3">[1:3]</a></sup></p>
-</li>
-<li>
-<p>在 <code>Package\</code> 目录中创建 <code>option</code> 、<code>appdata</code> 、<code>amfs</code> 三个新目录。</p>
-</li>
-<li>
-<p>将游戏 <code>ICF</code> 文件重命名为 <code>ICF1</code> 复制到 <code>amfs</code> 目录中。（注意版本一致）</p>
-</li>
-<li>
-<p>使用下载的 <a href="segatools.ini"><code>segatools.ini</code> 示例</a>和 <a href="launch.bat"><code>launch.bat</code> 示例</a>替换 <code>Package</code> 目录中的同名文件。</p>
-</li>
-<li>
-<p>使用 <a href="XenonUnpack.exe"><code>XenonUnpack.exe</code></a> 脱壳 <code>amdaemon.exe</code>。</p>
-</li>
-<li>
-<p>将 <a href="odd.sys"><code>odd.sys</code></a> 和 <a href="odd-loader.bat"><code>odd-loader.bat</code></a> 复制到 <code>Package</code> 目录。</p>
-</li>
-</ol>
-<h2 id="运行">运行</h2>
-<ol>
-<li>
-<p>以<strong>管理员权限</strong>运行 <code>odd-loader.bat</code>，不要关闭。</p>
-</li>
-<li>
-<p>运行 <code>launch-bat</code>。</p>
-</li>
-</ol>
-<h2 id="故障排除">故障排除</h2>
-<h3 id="Game-processes-have-terminated">Game processes have terminated</h3>
-<p>启动后若只有一个命令行窗口并有如上提示，通常是缺少某个文件夹或未正确挂载 <code>odd.sys</code>。请仔细核对上述步骤。</p>
-<h3 id="黑屏，是吗？为什么呢？">黑屏，是吗？为什么呢？</h3>
-<p><img src="%E9%BB%91%E5%B1%8F%EF%BC%8C%E6%98%AF%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F.png" alt="黑屏，是吗？为什么呢？"></p>
-<p>除了图片中的提示外，出现此种情况也有可能是缺少某个文件或文件夹（如 <code>option\</code>）导致的。请仔细核对上述步骤。</p>
-<h3 id="卡第三屏">卡第三屏</h3>
-<p>若卡在第三启动屏（如下图），可以尝试将机台改为标准机台或关闭 <code>店内招募</code> 功能。<img src="%E7%AC%AC%E4%B8%89%E5%90%AF%E5%8A%A8%E5%B1%8F.png" alt="第三启动屏"></p>
-<p>按 <code>测试键</code> 通常为数字区7键（<code>Alpha7</code>）进入测试模式，<code>一号键</code> 通常为 <code>W</code> 和小键盘区8键（<code>KeyPad8</code>）向上移动选项，<code>四号键</code> 通常为 <code>C</code> 和小键盘区3键（<code>KeyPad3</code>）向下移动选项，<code>服务键</code> 通常为数字区8键（<code>Alpha8</code>）向下移动选项，<code>测试键</code> 确定选项。进入 <code>游戏设置</code>，将 <code>设定群组内的标准机</code> 改为 <code>标准设定机</code>。或将 <code>店内招募设置</code> 改为 <code>OFF</code>。</p>
-<p><code>segatools.ini</code> 和 <code>AquaMai.toml</code> 均可配置键盘映射，后者优先级更高。</p>
-<h3 id="灰网">灰网</h3>
-<p>通常表现为在第二屏或网络测试中显示 <code>标题服务器 坏</code> 或灰色网络标识。</p>
-<p>尽管影响因素众多，但在本示例中，这是配置文件 <code>AquaMai.ini</code> 中配置项 <code>[GameSystem.RemoveEncryption]</code> 未禁用导致的。在此行下方新增一行 <code>Disabled = true</code> 即可解决。</p>
-<h3 id="无声音">无声音</h3>
-<p>这是缺少 <code>mai2.ini</code> 或里面缺少配置项</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Sound]</span></span><br><span class="line"><span class="attr">Sound8Ch</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>导致的。</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><code>MelonLoader</code> 和 <code>AquaMai</code> 也可以通过 <a target="_blank" rel="noopener" href="https://github.com/MuNET-OSS/MaiChartManager/releases/latest"><code>MuNET-OSS/MaiChartManager</code></a> 安装。安装后 <code>Mods</code> 目录会自动创建。在 <code>MaiChartManager</code> 中 <code>Mod界面语言</code> 选择 <code>让我们说中文！</code> 后会自动生成 <code>AquaMai.toml</code> 文件。 <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a> <a href="#fnref1:3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
+        内容已加密，请输入密码阅读
+        
+          <p class="article-more-link">
+            <a href="/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/" data-id="cuidmiVAx6JWsa9dyN3QtG2z9" data-title="初次探索maimai HDD" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2026/06/12/%E5%88%9D%E6%AC%A1%E6%8E%A2%E7%B4%A2maimai%20HDD/" data-id="cuidPMJEj-8HH1TZbP5sLIRu0" data-title="初次探索maimai HDD" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -221,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/06/11/hello-world/" data-id="cuidfRG0vVkjzzuwj_ALWQAie" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2026/06/11/hello-world/" data-id="cuid7vxd7-fglG-zWzsHSCm7U" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
